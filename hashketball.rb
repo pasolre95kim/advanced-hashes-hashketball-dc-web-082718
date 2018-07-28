@@ -141,11 +141,29 @@ end
   end
 end
 
-  def team_colors(team_name)
-    game_hash.each do|team, team_data|
-        if team_data[:team_name] ==  team_name
-          return team_name[:colors]
+def team_colors(team_name)
+    game_hash.each do |team, team_data|
+        if team_data[:team_name] == team_name
+            return game_hash[team][:colors]
         end
+    end
+end
+
+
+def team_names
+    array = []
+    game_hash.each do |team_origin, team|
+        array << team[:team_name]
+    end
+    array
+end
+
+def player_numbers(team_name)
+  game_hash.each do |team, team_data|
+    team_data[:players].each do |player|
+      if player[:player_name] == player_name
+        return player[:number]
       end
     end
-  
+  end
+end
