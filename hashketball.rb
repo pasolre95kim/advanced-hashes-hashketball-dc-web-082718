@@ -174,7 +174,7 @@ def big_shoe_rebounds
 	game_hash.each do |location, team_data|
 		team_data[:players].each {|a| max_size = a[:shoe] if a[:shoe] > max_size }
 	end
-	
+
 	#get that from the array
 	rebounds = nil
 	game_hash.each do |location, team_data|
@@ -182,4 +182,3 @@ def big_shoe_rebounds
 	end
 	return rebounds
 end
-
