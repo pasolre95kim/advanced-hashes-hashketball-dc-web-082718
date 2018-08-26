@@ -167,3 +167,19 @@ def player_numbers(team_name)
     end
   end
 end
+
+def big_shoe_rebounds
+	#find largest shoe size
+	max_size = 0
+	game_hash.each do |location, team_data|
+		team_data[:players].each {|a| max_size = a[:shoe] if a[:shoe] > max_size }
+	end
+	
+	#get that from the array
+	rebounds = nil
+	game_hash.each do |location, team_data|
+		team_data[:players].each {|a| rebounds = a[:rebounds] if a[:shoe] == max_size }
+	end
+	return rebounds
+end
+
